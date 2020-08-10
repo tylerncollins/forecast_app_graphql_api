@@ -6,16 +6,17 @@ export default gql`
     resorts(name: String): [Resort!]
   }
 
-  type Forecast {
-    timezone: String!
-    currently: DataPoint!
-    daily: [DataPoint!]!
-  }
-
   type Resort {
     name: String!
     lat: Float!
     lng: Float!
+    forecast: Forecast
+  }
+
+  type Forecast {
+    timezone: String!
+    currently: DataPoint!
+    daily: [DataPoint!]!
   }
 
   type DataPoint {
