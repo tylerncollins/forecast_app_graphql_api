@@ -14,15 +14,16 @@ class ForecastAPI extends RESTDataSource {
     const dateTime = this.convertDateTime(forecast.currently.time, forecast.timezone)
     const date = dateTime.slice(0, 9)
     const time =dateTime.slice(-11)
-    const daily = forecast.daily.data.map(data => {
-      return {
-        summary: data.summary,
-        icon: data.icon,
-        tempLow: data.temperatureLow,
-        tempHigh: data.temperatureHigh,
-        precipPrblty: forecast.currently.precipProbability,
-        precipType: forecast.currently.precipType
-      }
+    let dailies = [];
+    forecast.daily.data.forEach(daily => {
+      dailies.push({
+        summary: daily.summary,
+        icon: daily.icon,
+        tempLow: daily.temperatureLow,
+        tempHigh: daily.temperatureHigh,
+        precipPrblty: daily.precipProbability,
+        precipType: daily.precipType
+      })
     })
 
     return {
@@ -36,7 +37,7 @@ class ForecastAPI extends RESTDataSource {
         precipPrblty: forecast.currently.precipProbability,
         precipType: forecast.currently.precipType
       },
-      daily: daily
+      daily: dailies
     }
   }
 
