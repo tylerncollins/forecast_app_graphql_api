@@ -1,7 +1,7 @@
-import ForecastAPI from './forecast'
-import ResortsAPI from './resorts'
+import ForecastAPI from './forecast';
+import ResortsAPI from './resorts';
 
-export default () => ({ 
+export default () => ({
   forecastAPI: new ForecastAPI(),
   resortsAPI: new ResortsAPI()
-})
+});

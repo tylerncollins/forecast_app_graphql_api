@@ -7,7 +7,12 @@
     "build": "babel src -d dist",
     "start": "PORT=8080 nodemon --exec babel-node src/index.js",
     "serve": "npm run build && PORT=8080 node dist/index.js",
-    "serve:prod": "node dist/index.js" 
+    "serve:prod": "node dist/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "keywords": [],
   "author": "Tyler Collins",
@@ -29,6 +34,9 @@
     "@babel/node": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/register": "^7.10.3",
-    "nodemon": "^2.0.4"
+    "husky": "^4.2.5",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5",
+    "pretty-quick": "^3.0.0"
   }
 }
